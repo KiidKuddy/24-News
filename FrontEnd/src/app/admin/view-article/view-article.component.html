@@ -1,0 +1,46 @@
+<div
+  class="spacing-top"
+  id="fh5co-title-box"
+  [style.background-image]="'url(' + article.image + ')'"
+  data-stellar-background-ratio="0.5"
+>
+  <div class="overlay"></div>
+  <div class="page-title">
+    <img
+      src="../../../assets/home/images/person_1.jpg"
+      alt="Free HTML5 by FreeHTMl5.co"
+    />
+    <span>{{ article.date }}</span>
+    <h2 [innerHTML]="bypassHTML(article.title)"></h2>
+  </div>
+</div>
+<div id="fh5co-single-content" class="container-fluid pb-4 pt-4 paddding">
+  <div class="container paddding">
+    <div class="row mx-0">
+      <div
+        class="col-md-8 animate-box"
+        data-animate-effect="fadeInLeft"
+        [innerHTML]="bypassHTML(article.content)"
+      ></div>
+      <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+        <div>
+          <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">
+            Tags
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="fh5co_tags_all">
+          <a
+            href="#"
+            class="fh5co_tagg"
+            *ngFor="let tag of article.tags"
+            [innerHTML]="bypassHTML(tag)"
+          ></a>
+        </div>
+      </div>
+      <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

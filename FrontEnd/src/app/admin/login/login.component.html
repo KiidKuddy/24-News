@@ -1,0 +1,62 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title">
+        <span class="login100-form-title-1">
+          Sign In
+        </span>
+      </div>
+        <div class="alert mx-auto mt-3" *ngIf="loginFailed">
+          Invalid username or password
+        </div>
+      <form
+        class="login100-form validate-form"
+        [ngClass]="{ 'pt-0': loginFailed }"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div
+          class="wrap-input100 validate-input m-b-26"
+          [ngClass]="{
+            'alert-validate': submitted && form.username.errors?.required
+          }"
+          data-validate="Username required"
+        >
+          <span class="label-input100">Username:</span>
+          <input
+            class="input100"
+            type="text"
+            placeholder="Enter username"
+            formControlName="username"
+            required
+          />
+          <span class="focus-input100"></span>
+        </div>
+
+        <div
+          class="wrap-input100 validate-input m-b-18"
+          [ngClass]="{
+            'alert-validate': submitted && form.password.errors?.required
+          }"
+          data-validate="Password required"
+        >
+          <span class="label-input100">Password:</span>
+          <input
+            class="input100"
+            type="password"
+            placeholder="Enter password"
+            formControlName="password"
+            required
+          />
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-login100-form-btn mt-4">
+          <button class="login100-form-btn">
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

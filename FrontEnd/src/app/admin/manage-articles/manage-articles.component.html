@@ -1,0 +1,31 @@
+<admin-navbar></admin-navbar>
+
+<div class="overlay">
+    <div class="container spacing-top">
+        <div class="card" *ngFor="let article of articles">
+            <div class="card-img" [style.background-image]="'url(' + article.image + ')'">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <a href="#" [routerLink]="['/admin/view-article', article._id]">View Article</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <h2 [innerHTML]="bypassHTML(article.title)"></h2>
+                <time>{{ article?.date }}</time>
+                <div class="module fade" [innerHTML]="bypassHTML(article.content)">
+                </div>
+            </div>
+
+            <div class="card-action">
+                <div class="card-author">
+                    <img src="http://lorempixel.com/40/40/sports/" alt="user">
+                    <div class="card-author-content">
+                        By <span>{{ article.creatorName }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
